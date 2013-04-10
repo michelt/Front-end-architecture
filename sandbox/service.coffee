@@ -4,17 +4,14 @@ define [
   "core/http"
   "core/promise"
   "core/command"
-  "core/dev"
+  "core/mvc"
   "ext/mediator"
-  "ext/framework"
-], (util, events, http, promise, command, dev, mediator, framework) ->
+], (util, events, http, promise, command, dev, mediator) ->
 
   util.extend {}, promise, command, mediator,
     {util},
     {events},
     {http},
-    {dev},
-    routing: framework.routing,
     mvc:
-      Model: framework.mvc.Model
-      Collection: framework.mvc.Model
+      Model: mvc.Model
+      Collection: mvc.Model

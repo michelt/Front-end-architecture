@@ -5,13 +5,10 @@ define [
   "core/promise"
   "core/command"
   "core/store"
-  "core/dev"
-  "ext/framework"
-], (util, events, http, promise, command, Store, dev, framework) ->
+], (util, events, http, promise, command, Store, dev) ->
 
-  util.extend {}, promise, command, framework,
+  util.extend {}, promise, command,
     {util},
     {events},
     {http},
     {Store},
-    {dev}

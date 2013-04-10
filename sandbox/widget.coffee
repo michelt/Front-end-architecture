@@ -6,12 +6,10 @@ define [
   "core/command"
   "core/dev"
   "ext/mediator"
-  "ext/framework"
-], (util, dom, events, promise, command, dev, mediator, framework) ->
+], (util, dom, events, promise, command, dev, mediator) ->
 
-  util.extend {}, promise, mediator, framework,
+  util.extend {}, promise, mediator,
     {util},
     {dom},
     {events},
-    {dev},
     request: command.request

@@ -20,25 +20,3 @@ define [
 
   start: ->
     @emit "app:start"
-
-  pipeFrom: (target, events, alias) ->
-    target.on events, (args...) ->
-      args.unshift alias ? events
-      pubsub.emit.apply pubsub, args
-    @
-  unpipeFrom: (target, events, alias) ->
-    target.off events, (args...) ->
-      args.unshift alias ? events
-      pubsub.emit.apply pubsub, args
-    @
-
-  pipeTo: (target, events, alias) ->
-    @on events, (args...) ->
-      args.unshift alias ? events
-      target.emit.apply target, args
-    @
-  unpipeTo: (target, events, alias) ->
-    @off events, (args...) ->
-      args.unshift alias ? events
-      target.emit.apply target, args
-    @
